@@ -61,6 +61,47 @@ Imagine that the center-left government actually implements a carbon tax, which 
 
 ## What is a policy argument
 
+So what is a policy argument? At its core, it is a claim about a counterfactual: what would happen to some outcome if we did policy A rather than policy B (or the status quo). The point here is not to say what should be valued, but to say what would happen, given the world we live in. A good policy argument therefore succeeds to the extent that its implied counterfactual is realistic.
+
+However, there is a common ambiguity in policy recommendations: which counterfactual world are we talking about? Is it the real world, with messy politics, limited state capacity, and voters who might punish you for higher gas prices? Or is it a hypothetical world where the policy is implemented cleanly, enforced perfectly, and kept in place for decades? In practice, economists (and other social scientists) often slide between these worlds without saying so. In this blog, I emphasize policy arguments about the real world.
+
+Concretely, a policy argument always rests on a model. Here I use “model” in the broad sense: a set of assumptions about behavior, institutions, enforcement, and time horizons that lets you translate “implement policy A” into “here is what happens next.” The model can be implicit or explicit, but it is always there. And because it is there, any policy conclusion is conditional on it.
+
+This brings us to the key complication: model uncertainty. There are usually multiple plausible models of how the world will respond. A responsible policy argument should therefore ask: under each plausible model, what would happen under policy A and under policy B? And then, instead of pretending one model is “the truth,” we should weight the models by how plausible we think they are and average the outcomes. Put differently, the argument is not “A is best under my favorite model,” but “A is best after accounting for the fact that the world might work differently.”
+
+One important observation follows immediately: model uncertainty only matters when different plausible models rank the policies differently. If every reasonable model points to the same policy, then the recommendation is robust. But when the ranking flips across models, the “missing assumptions” become the whole argument.
+
+# Elaborating on the Carbon Tax Example
+
+Let's again consider the first example, but now with a bit more detail. As mentioned, we imagine a center-left government asking for advice on reducing carbon emissions. We consider that the policy maker only considers 2 different policies. 
+
+- A carbon tax (A)
+- An Investment fund in green infrastructure (B)
+
+For simplicity and clarity we will restrict ourselves to two models with starkly different policy recommendations. One model, where any policy implemented will have an infinite life time. I.e. a carbon tax (or investment fund), will sustain themselves until their planned terminations (say 10 years in the future). Conversely, we also consider a model, where the opposition party, if we winning will reverse these policies. We can draw the CO2 emissions (y-axis) as a function of time (x-axis), and we can draw the outcome under the different models in different colors (red and green). Finally we can in one number summarize the aggregate carbon emissions in one number, under each model. I.e. we are considering two policies under the two models; a pure _optimal efficiency_ model, and a game theoretic election model. 
+
+*Inserting figure carbon_emissions_by_model*
+
+Next, we can think about the probabilities of each model of the models being true. Finally we can plot the expected carbon emissions of each policy (y-axis), under varying probabilities of which model is true (x-axis), where the policies expectation intersect, (draw vertical black dashed line), is where one should switch between each model.
+
+*Inserting figure carbon_cumulative_vs_probability*
+
+As seen from the plot, it's not exactly obvious what, is the best policy recommendation, it's strictly a function of what we believe about how the real world of policies actually work. 
+
+# Just use prediction markets
+
+Another way of testing policy recommendations, is to very simply make contracts with the experts making the given policy recommendations. If we implement a carbon tax, how much is carbon emissions reduced in 10 years.
+
+- EXPAND ON THIS
+
+# Rent control in Copenhagen.
+
+- Throwback to older post.
+- Rent control is usually considered bad because it restricts supply. However, that does not take into account that currently its NIMBY leftwing politics structural issue that limits supply of housing in copenhagen. (SHOW EVIDENCE OF THIS). In other words, we need to take seriously, that rent control might actually allow for more housing being built, due to the current main limiter is not too low rents, but rather political inaction. Use the graphs from last blog. 
+
+
+
+#### OLD
 
 So what is a policy recommendation? At its core, it is a claim about a counterfactual: what would happen to some outcome if we did policy A rather than policy B (or the status quo). And in many instances, it's unclear, exactly what counter factual world that is referred to? is it the real world, or a hypothetical world. Another way to think about it is, that it's a category error in normative policy analysis, i.e., a model of the world is conflated with the real world, when there are being made statements about the real world. In this blog, I will emphasize policy recommendations for the real world.
 Put differently, it is a statement about Y(A) relative to Y(B), where Y is the outcome we care about. The point here is not to say what should be valued, but to say what would happen, given the world we live in. A good policy argument therefore succeeds to the extent that its implied counterfactual is realistic. 
@@ -82,27 +123,3 @@ E[Y(A) - Y(B)] = ∫ (E[Y(A) | m] - E[Y(B) | m]) p(m) dm
 Put differently, the argument is not “A is best under model m,” but “A is best after averaging across plausible models.” This is still an empirical claim: it is about which models are plausible and how likely they are. Summarizing, a good policy argument is one where the counterfactual is realistic, the model is explicit, and the remaining model uncertainty is acknowledged rather than hidden.
 
 One important observation here is that the alternative models used to consider the policies (and their associated probabilities) are crucial. In other words, if basically every conveivable model, would yield the same policy recommendation, then choosing the correct would not be as important. However, often times, the important things needed for a realistic counterfactual are some of the things we actually exclude.
-
-# Elaborating on the Carbon Tax Example
-
-Let's again consider the first example, but now with a bit more detail. As mentioned, we imagine a center-left government asking for advice on reducing carbon emissions. We consider that the policy maker only considers 2 different policies. 
-
-- A carbon tax (A)
-- An Investment fund in green infrastructure (B)
-
-For simplicity and clarity we will restrict ourselves to two models with starkly different policy recommendations. One model, where any policy implemented will have an infinite life time. I.e. a carbon tax (or investment fund), will sustain themselves until their planned terminations (say 10 years in the future). Conversely, we also consider a model, where the opposition party, if we winning will reverse these policies. We can draw the CO2 emissions (y-axis) as a function of time (x-axis), and we can draw the outcome under the different models in different colors (red and green). Finally we can in one number summarize the aggregate carbon emissions in one number, under each model. I.e. we are considering two policies under the two models; a pure _optimal efficiency_ model, and a game theoretic election model. 
-
-Summarizing start with two plots side by side. LHS is the two policies emissions over time under the optimal efficiency model of the world, while the other is the political reality model of the world. 
-
-Next, we can think about the probabilities of each model of the models being true. Finally we can plot the expected carbon emissions of each policy (y-axis), under varying probabilities of which model is true (x-axis), where the policies expectation intersect, (draw vertical black dashed line), is where one should switch between each model.
-
-# Just use prediction markets
-
-Another way of testing policy recommendations, is to very simply make contracts with the experts making the given policy recommendations. If we implement a carbon tax, how much is carbon emissions reduced in 10 years.
-
-- EXPAND ON THIS
-
-# Rent control in Copenhagen.
-
-- Throwback to older post.
-- Rent control is usually considered bad because it restricts supply. However, that does not take into account that currently its NIMBY leftwing politics structural issue that limits supply of housing in copenhagen. (SHOW EVIDENCE OF THIS). In other words, we need to take seriously, that rent control might actually allow for more housing being built, due to the current main limiter is not too low rents, but rather political inaction. Use the graphs from last blog. 
