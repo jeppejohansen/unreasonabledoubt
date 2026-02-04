@@ -61,11 +61,15 @@ Imagine that the center-left government actually implements a carbon tax, which 
 
 ## What is a policy argument
 
-So what is a policy argument? At its core, it is a claim about a counterfactual: what would happen to some outcome if we did policy A rather than policy B (or the status quo). Put differently, it is a statement about Y(A) relative to Y(B), where Y is the outcome we care about. The point here is not to say what should be valued, but to say what would happen, given the world we live in. A good policy argument therefore succeeds to the extent that its implied counterfactual is realistic. The outcome we often care about is the difference:
+
+So what is a policy recommendation? At its core, it is a claim about a counterfactual: what would happen to some outcome if we did policy A rather than policy B (or the status quo). And in many instances, it's unclear, exactly what counter factual world that is referred to? is it the real world, or a hypothetical world. Another way to think about it is, that it's a category error in normative policy analysis, i.e., a model of the world is conflated with the real world, when there are being made statements about the real world. In this blog, I will emphasize policy recommendations for the real world.
+Put differently, it is a statement about Y(A) relative to Y(B), where Y is the outcome we care about. The point here is not to say what should be valued, but to say what would happen, given the world we live in. A good policy argument therefore succeeds to the extent that its implied counterfactual is realistic. 
+
+The outcome we often care about is the difference:
 
 E[Y(A) - Y(B)] = E[Y(A)] - E[Y(B)]
 
-This notation is called potential outcomes and is usually associated with statistics. Here, I use it more informally to reason about policies and models. Concretely, Y is the outcome, and A and B are alternative policies.
+This notation is called potential outcomes and is usually associated with statistics. Here, I use it the context of using theoretical models to reason about policies. Concretely, Y is the outcome, and A and B are alternative policies.
 
 Formally, we are often saying something like E[Y(A) | M = m], where M is the model we are using. The problem is that we are rarely certain about the correct model. If we are honest about that uncertainty, we should integrate it out. That is, we should weight each model by the probability we assign to it and then average:
 
@@ -86,5 +90,17 @@ Let's again consider the first example, but now with a bit more detail. As menti
 - A carbon tax (A)
 - An Investment fund in green infrastructure (B)
 
-For simplicity and clarity we will restrict ourselves to two models with starkly different policy recommendations. One model, where any policy implemented will have an infinite life time. I.e. a carbon tax (or investment fund), will sustain themselves until their planned terminations (say 50 years in the future). Conversely, we also consider a model, where the opposition party, if we winning will reverse these policies.
+For simplicity and clarity we will restrict ourselves to two models with starkly different policy recommendations. One model, where any policy implemented will have an infinite life time. I.e. a carbon tax (or investment fund), will sustain themselves until their planned terminations (say 10 years in the future). Conversely, we also consider a model, where the opposition party, if we winning will reverse these policies. We can draw the CO2 emissions (y-axis) as a function of time (x-axis), and we can draw the outcome under the different models in different colors (red and green). Finally we can in one number summarize the aggregate carbon emissions in one number, under each model. I.e. we are considering two policies under a two models; a pure _optimal efficiency_ model, and a game theoretic election model.
 
+Next, we can think about the probabilities of each model of the models being true. Finally we can plot the expected carbon emissions of each policy (y-axis), under varying probabilities of which model is true (x-axis), where the policies expectation intersect, (draw vertical black dashed line), is where one should switch between each model.
+
+# Just use prediction markets
+
+Another way of testing policy recommendations, is to very simply make contracts with the experts making the given policy recommendations. If we implement a carbon tax, how much is carbon emissions reduced in 10 years.
+
+- EXPAND ON THIS
+
+# Rent control in Copenhagen.
+
+- Throwback to older post.
+- Rent control is usually considered bad because it restricts supply. However, that does not take into account that currently its NIMBY leftwing politics structural issue that limits supply of housing in copenhagen. (SHOW EVIDENCE OF THIS). In other words, we need to take seriously, that rent control might actually allow for more housing being built, due to the current main limiter is not too low rents, but rather political inaction. Use the graphs from last blog. 
