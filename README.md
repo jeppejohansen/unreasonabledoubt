@@ -15,3 +15,17 @@ Drafts, models, and supporting material for Unreasonable Doubt blog posts.
 - Avoids jargon when possible; defines key terms when used.
 
 For full guidance, see `STYLE_GUIDE.md` and `POST_TEMPLATE.md`.
+
+## About code development
+
+Uses `uv` for Python.
+
+Run scripts:
+- `uv run python path/to/script.py`
+
+Install packages (project dependencies):
+- `uv add <package>` (e.g. `uv add numpy matplotlib`)
+- `uv sync` to align the environment with `pyproject.toml`
+
+Install packages for a standalone script:
+- `uv add --script path/to/script.py <package>`
