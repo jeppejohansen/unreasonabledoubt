@@ -86,10 +86,11 @@ Next, we can think about the probabilities of each model of the models being tru
 
 *Inserting figure carbon_cumulative_vs_probability*
 
-As seen from the plot, it's not exactly obvious what, is the best policy recommendation, it's strictly a function of what we believe about how the real world of policies actually work. 
+As seen from the plot, it's not exactly obvious what, what is the best policy recommendation. In fact, it's strictly a function of what we believe about how the real world of policies actually work. 
 
 # Just use prediction markets
 
+In the stylized example above, only two models was considered, but in reality people have a continiuum of probable models of the real world. Marginalizing over the this distribution, yields the expected outcome, under different policies, which in many cases is what we.
 Another way of testing policy recommendations, is to very simply make contracts with the experts making the given policy recommendations. If we implement a carbon tax, how much is carbon emissions reduced in 10 years.
 
 - EXPAND ON THIS
