@@ -1,0 +1,20 @@
+# Justfile for "Demand for Investment Is Inelastic" blog post
+
+# Solve the lifecycle model (PE sweep + GE solver + R_s sweep + savings sweep)
+# Takes ~30-40 minutes.
+solve:
+    uv run python model.py
+
+# Generate all plots (requires model results to exist)
+plots:
+    uv run python intro_plots.py
+    uv run python supply_plots.py
+    uv run python plots.py
+    uv run python equilibrium_plots.py
+
+# Compile the blog post to PDF (requires typst)
+compile:
+    /opt/homebrew/bin/typst compile post.typ post.pdf
+
+# Run everything: solve model then generate plots
+all: solve plots

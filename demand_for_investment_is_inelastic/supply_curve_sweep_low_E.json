@@ -1,0 +1,123 @@
+[
+  {
+    "alpha_input": 0.15,
+    "expected_stock_return": 1.0969490064995004,
+    "risk_free_rate": 1.013657707034905,
+    "premium": 0.08329129946459535,
+    "avg_savings_rate": 0.7157631145368928,
+    "avg_portfolio_share": 0.5094973672449142,
+    "avg_stock_holdings": 1.1946096376069608,
+    "avg_bond_holdings": 2.6753625548605893,
+    "avg_savings_amount": 3.8699721924675496
+  },
+  {
+    "alpha_input": 0.2,
+    "expected_stock_return": 1.0727117548746252,
+    "risk_free_rate": 1.0145113137245867,
+    "premium": 0.05820044115003853,
+    "avg_savings_rate": 0.7120517545947506,
+    "avg_portfolio_share": 0.4492232498396624,
+    "avg_stock_holdings": 0.8815336448655776,
+    "avg_bond_holdings": 2.6290169878640715,
+    "avg_savings_amount": 3.5105506327296494
+  },
+  {
+    "alpha_input": 0.25,
+    "expected_stock_return": 1.0581694038997003,
+    "risk_free_rate": 1.015478734639559,
+    "premium": 0.0426906692601412,
+    "avg_savings_rate": 0.7096306697329334,
+    "avg_portfolio_share": 0.3887329431854162,
+    "avg_stock_holdings": 0.6553609717608658,
+    "avg_bond_holdings": 2.677124479132838,
+    "avg_savings_amount": 3.332485450893704
+  },
+  {
+    "alpha_input": 0.30000000000000004,
+    "expected_stock_return": 1.0484745032497502,
+    "risk_free_rate": 1.0165843585423846,
+    "premium": 0.03189014470736562,
+    "avg_savings_rate": 0.707892307100477,
+    "avg_portfolio_share": 0.33469535642689596,
+    "avg_stock_holdings": 0.49502521210643685,
+    "avg_bond_holdings": 2.733819366990511,
+    "avg_savings_amount": 3.228844579096948
+  },
+  {
+    "alpha_input": 0.35,
+    "expected_stock_return": 1.0415495742140717,
+    "risk_free_rate": 1.0178600784302605,
+    "premium": 0.023689495783811187,
+    "avg_savings_rate": 0.7067170762782278,
+    "avg_portfolio_share": 0.2858563056866762,
+    "avg_stock_holdings": 0.3787064387565609,
+    "avg_bond_holdings": 2.786867605905341,
+    "avg_savings_amount": 3.165574044661902
+  },
+  {
+    "alpha_input": 0.4,
+    "expected_stock_return": 1.0363558774373127,
+    "risk_free_rate": 1.0193484182994488,
+    "premium": 0.017007459137863945,
+    "avg_savings_rate": 0.7057437733876494,
+    "avg_portfolio_share": 0.23260385892758143,
+    "avg_stock_holdings": 0.2717717462183558,
+    "avg_bond_holdings": 2.850486230278042,
+    "avg_savings_amount": 3.1222579764963974
+  },
+  {
+    "alpha_input": 0.45000000000000007,
+    "expected_stock_return": 1.0323163354998335,
+    "risk_free_rate": 1.0211073654175806,
+    "premium": 0.011208970082252856,
+    "avg_savings_rate": 0.7046648735645519,
+    "avg_portfolio_share": 0.17271870483553398,
+    "avg_stock_holdings": 0.16580675608001672,
+    "avg_bond_holdings": 2.927346297304121,
+    "avg_savings_amount": 3.093153053384138
+  },
+  {
+    "alpha_input": 0.5,
+    "expected_stock_return": 1.0290847019498501,
+    "risk_free_rate": 1.0232181019593385,
+    "premium": 0.005866599990511645,
+    "avg_savings_rate": 0.7039880891897125,
+    "avg_portfolio_share": 0.0990597198049723,
+    "avg_stock_holdings": 0.07707914539549496,
+    "avg_bond_holdings": 3.0012820578363844,
+    "avg_savings_amount": 3.0783612032318786
+  },
+  {
+    "alpha_input": 0.55,
+    "expected_stock_return": 1.0264406381362274,
+    "risk_free_rate": 1.0257978910659318,
+    "premium": 0.0006427470702956573,
+    "avg_savings_rate": 0.7032640112431431,
+    "avg_portfolio_share": 0.020788243491082475,
+    "avg_stock_holdings": 0.036533410796643,
+    "avg_bond_holdings": 3.04356317995375,
+    "avg_savings_amount": 3.0800965907503928
+  },
+  {
+    "alpha_input": 0.6,
+    "expected_stock_return": 1.024237251624875,
+    "risk_free_rate": 1.0290226274491732,
+    "premium": -0.004785375824298166,
+    "avg_savings_rate": 0.7019166432543449,
+    "avg_portfolio_share": 5.146888147041179e-05,
+    "avg_stock_holdings": 0.00014582194566894338,
+    "avg_bond_holdings": 3.0917701080532387,
+    "avg_savings_amount": 3.0919159299989074
+  },
+  {
+    "alpha_input": 0.65,
+    "expected_stock_return": 1.0223728476537308,
+    "risk_free_rate": 1.0331687170847694,
+    "premium": -0.010795869431038607,
+    "avg_savings_rate": 0.7002823558506682,
+    "avg_portfolio_share": 5.5808445924723076e-05,
+    "avg_stock_holdings": 0.00016364374788449944,
+    "avg_bond_holdings": 3.109212096886555,
+    "avg_savings_amount": 3.10937574063444
+  }
+]

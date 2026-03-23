@@ -1,0 +1,57 @@
+[
+  {
+    "expected_return": 0.9,
+    "avg_savings_rate": 0.7059165887394875,
+    "avg_portfolio_share": 5.998473796419343e-05
+  },
+  {
+    "expected_return": 0.92,
+    "avg_savings_rate": 0.7059167411221489,
+    "avg_portfolio_share": 6.334306590934576e-05
+  },
+  {
+    "expected_return": 0.9400000000000001,
+    "avg_savings_rate": 0.7059162123509036,
+    "avg_portfolio_share": 6.011415067312972e-05
+  },
+  {
+    "expected_return": 0.9600000000000001,
+    "avg_savings_rate": 0.7059164946145245,
+    "avg_portfolio_share": 5.9843743477402625e-05
+  },
+  {
+    "expected_return": 0.9800000000000001,
+    "avg_savings_rate": 0.7059165832959265,
+    "avg_portfolio_share": 6.07552013811259e-05
+  },
+  {
+    "expected_return": 1.0,
+    "avg_savings_rate": 0.7059166288972901,
+    "avg_portfolio_share": 5.948666710072742e-05
+  },
+  {
+    "expected_return": 1.02,
+    "avg_savings_rate": 0.7059077236930025,
+    "avg_portfolio_share": 0.00700044759207672
+  },
+  {
+    "expected_return": 1.04,
+    "avg_savings_rate": 0.7054832659123872,
+    "avg_portfolio_share": 0.2563797247113868
+  },
+  {
+    "expected_return": 1.06,
+    "avg_savings_rate": 0.7069155331823458,
+    "avg_portfolio_share": 0.37363421293991395
+  },
+  {
+    "expected_return": 1.08,
+    "avg_savings_rate": 0.7091802575005163,
+    "avg_portfolio_share": 0.4510498858227678
+  },
+  {
+    "expected_return": 1.1,
+    "avg_savings_rate": 0.7116216508686289,
+    "avg_portfolio_share": 0.49492284826892746
+  }
+]
