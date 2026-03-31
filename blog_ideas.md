@@ -1,3 +1,4 @@
 - price. pr. square meter targeting (taxing housing)?
 - where did all the growth go? (developed contries the last 40 years, what sectors expanded, etc.) Basically, when people say growth is bad because it does not improve lives, is that reflected in the data?
 - Nuclear and green energy is not substitutes but compliments. what is DK really good at.
+- In defence of gambling
