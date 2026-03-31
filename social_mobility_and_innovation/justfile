@@ -1,0 +1,19 @@
+set working-directory := ".."
+
+simulate:
+    uv run python social_mobility_and_innovation/simulate_model.py --simulation-mode grid --grid-size 401 --output-stem social_mobility_innovation_final
+
+simulate-rho025:
+    uv run python social_mobility_and_innovation/simulate_model.py --simulation-mode grid --grid-size 401 --eta-w 1.25 --eta-b 1.0 --rho 0.25 --output-stem social_mobility_innovation_eta125_rho025
+
+simulate-rho050:
+    uv run python social_mobility_and_innovation/simulate_model.py --simulation-mode grid --grid-size 401 --eta-w 1.25 --eta-b 1.0 --rho 0.5 --output-stem social_mobility_innovation_eta125_rho050
+
+simulate-rho075:
+    uv run python social_mobility_and_innovation/simulate_model.py --simulation-mode grid --grid-size 401 --eta-w 1.25 --eta-b 1.0 --rho 0.75 --output-stem social_mobility_innovation_eta125_rho075
+
+simulate-rho025-highsorting:
+    uv run python social_mobility_and_innovation/simulate_model.py --simulation-mode grid --grid-size 401 --rho 0.25 --eta-w 2.0 --eta-b 1.0 --phi 0.05 --c-g 0.15 --omega 0.70 --output-stem social_mobility_innovation_eta200_rho025_highsorting
+
+run: simulate simulate-rho025 simulate-rho050 simulate-rho075 simulate-rho025-highsorting
+    typst compile social_mobility_and_innovation/model.typ social_mobility_and_innovation/model.pdf
