@@ -4,3 +4,4 @@
 - In defence of gambling
 - Against god given rights!
 - Good integration is not what we broadly agree on.
+- Team america game theory: assholes, pussies and dicks.
