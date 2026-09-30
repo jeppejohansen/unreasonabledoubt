@@ -56,6 +56,8 @@ The other skills have separate jobs:
 | `graphics-coder` | Design, code, and inspect generated figures. |
 | `blog-coder` | Write reproducible post-specific Python scripts. |
 
+The `graphics-coder` reference includes [five style trials](.agents/skills/graphics-coder/references/style_trials/comparison.png) made from the same model data, plus the default palette and export guidance.
+
 ## Run code and build figures
 
 Python 3.12 or newer is managed with `uv`. From the repository root:
