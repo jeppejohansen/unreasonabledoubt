@@ -16,4 +16,4 @@ simulate-rho025-highsorting:
     uv run python blogs/social_mobility_and_innovation/src/simulate_model.py --simulation-mode grid --grid-size 401 --rho 0.25 --eta-w 2.0 --eta-b 1.0 --phi 0.05 --c-g 0.15 --omega 0.70 --output-stem social_mobility_innovation_eta200_rho025_highsorting
 
 run: simulate simulate-rho025 simulate-rho050 simulate-rho075 simulate-rho025-highsorting
-    typst compile blogs/social_mobility_and_innovation/model.typ blogs/social_mobility_and_innovation/model.pdf
+    typst compile --root blogs/social_mobility_and_innovation blogs/social_mobility_and_innovation/notes/model.typ blogs/social_mobility_and_innovation/notes/model.pdf

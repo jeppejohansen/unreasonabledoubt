@@ -43,12 +43,12 @@ The crucial point is that the _quantity_ of earnings is approximately fixed in t
 So stock supply is nearly _vertical_: the quantity of earnings claims is fixed, and the price (P/E ratio) adjusts to clear the market. @fig-stock-supply shows the supply curve.
 
 #figure(
-  image("figures/stock_cashflows.png", width: 85%),
+  image("../figures/stock_cashflows.png", width: 85%),
   caption: [A stock is a claim on a stream of future earnings. You pay price $P$ today and receive earnings $E$ each period.],
 ) <fig-stock-cashflows>
 
 #figure(
-  image("figures/stock_supply.png", width: 85%),
+  image("../figures/stock_supply.png", width: 85%),
   caption: [Stock supply is nearly vertical. The quantity of earnings claims is fixed; the P/E ratio adjusts to clear the market.],
 ) <fig-stock-supply>
 
@@ -59,12 +59,12 @@ A bond is simpler: you lend the government a fixed amount and receive a known re
 The result is a "safe asset shortage" (Caballero, Farhi & Gourinchas 2017): global demand for safe stores of value has outstripped supply, driving a secular decline in real interest rates. Safe asset supply is more elastic than stock supply, but still largely exogenous to the savings market. @fig-bond-supply illustrates the constrained supply curve.
 
 #figure(
-  image("figures/bond_cashflows.png", width: 85%),
+  image("../figures/bond_cashflows.png", width: 85%),
   caption: [A bond is a loan to the government at a known return $R_f$.],
 ) <fig-bond-cashflows>
 
 #figure(
-  image("figures/bond_supply.png", width: 85%),
+  image("../figures/bond_supply.png", width: 85%),
   caption: [Bond supply is constrained by fiscal policy and sovereign credibility. The yield adjusts, but the quantity of safe assets is largely exogenous.],
 ) <fig-bond-supply>
 
@@ -107,12 +107,12 @@ where $E$ and $B$ enter as the earnings yield and interest yield respectively (t
 @fig-ge-equilibrium shows the equilibrium graphically: the intersection of the supply-implied premium curve (decreasing in $alpha$) with the demand curve (increasing in $alpha$).
 
 #figure(
-  image("figures/ge_equilibrium.png", width: 85%),
+  image("../figures/ge_equilibrium.png", width: 85%),
   caption: [Equilibrium as the intersection of supply-implied and demand-implied equity premium curves. The supply curve is decreasing in the portfolio share $alpha$ (more money in stocks compresses the premium); the demand curve is increasing (households require a higher premium to hold more risk).],
 ) <fig-ge-equilibrium>
 
 #figure(
-  image("figures/ge_returns.png", width: 85%),
+  image("../figures/ge_returns.png", width: 85%),
   caption: [Equilibrium stock returns, bond yields, and the equity premium from the general equilibrium model.],
 ) <fig-ge-returns>
 
@@ -147,7 +147,7 @@ Concretely, the problem is solved backwards from retirement via dynamic programm
 The right panel tells the other half of the story: the average portfolio share in stocks ($alpha$) swings from about 23% to 60% over the same range. When stock returns are high, households eagerly load up on equities. When returns are low, they shift to bonds. But they _keep saving the same amount_.
 
 #figure(
-  image("figures/savings_supply.png", width: 100%),
+  image("../figures/savings_supply.png", width: 100%),
   caption: [*The core result.* Left: the savings rate is nearly invariant to expected stock returns — roughly 71% regardless. Right: portfolio allocation swings widely (23%–60%). Savings is inelastic; portfolio choice is elastic.],
 ) <fig-savings-supply>
 
@@ -164,7 +164,7 @@ Put differently, the retirement constraint is _quantity-based_: you need a certa
 The gap between the two lines shows that portfolio rebalancing absorbs nearly all the adjustment. When stock returns rise, households shift from bonds to stocks rather than saving more or less.
 
 #figure(
-  image("figures/decomposition.png", width: 85%),
+  image("../figures/decomposition.png", width: 85%),
   caption: [Savings rate in the bonds-only model (dashed) vs. the full model with stocks (solid). The flatness comes from the retirement motive; adding stocks barely changes the picture.],
 ) <fig-decomposition>
 
@@ -177,7 +177,7 @@ We've established that savings is inelastic and asset supply is approximately fi
 This is how you get structurally elevated P/E ratios. It is not a bubble. It is the equilibrium outcome of inelastic savings meeting inelastic asset supply. The money _has to go somewhere_.
 
 #figure(
-  image("figures/savings_comparative_statics.png", width: 100%),
+  image("../figures/savings_comparative_statics.png", width: 100%),
   caption: [More savings raises asset prices across the board. P/E rises, bond yields fall, and portfolio allocation barely changes. Prices do all the adjusting.],
 ) <fig-comparative-statics>
 
@@ -192,7 +192,7 @@ The "multiplier" is $alpha slash E$ — the share going to stocks divided by agg
 @fig-supply-demand provides another view of the same result: a supply-demand diagram where inelastic savings supply meets a downward-sloping demand curve from firms. Because supply is nearly vertical, shifts in demand mostly move the price (expected return), not the quantity of savings.
 
 #figure(
-  image("figures/supply_demand.png", width: 85%),
+  image("../figures/supply_demand.png", width: 85%),
   caption: [Inelastic savings supply (nearly vertical) meets downward-sloping demand for capital. Shifts in demand mostly move returns, not savings quantities.],
 ) <fig-supply-demand>
 

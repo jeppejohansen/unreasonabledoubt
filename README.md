@@ -8,7 +8,7 @@ Each blog lives under `blogs/<slug>/`, and each standalone math note lives under
 
 - `blogs/` contains `policy_arguments_framework`, `demand_for_investment_is_inelastic`, `social_mobility_and_innovation`, `market_monetarism`, and `land_value_tax_1`.
 - `math_notes/` contains `market_monetarist_math` and `deontic_logic_and_set_theory`.
-- `.agents/skills/` contains the repo's writing, research, model, and figure workflows. The style skill keeps the writing guide and published post references under `references/`.
+- `.agents/skills/` contains the repo's writing, research, model, and figure workflows. `.claude/skills/` links to the same skills for Claude Code. The style skill keeps the writing guide and published post references under `references/`.
 - `templates/math_note.typ` seeds new math notes.
 - `blog_ideas.md` lists possible posts.
 - `pyproject.toml` and `uv.lock` define the shared Python environment.
@@ -36,11 +36,11 @@ Both recipes also create these directories:
 
 Each directory gets a `.gitkeep` so it exists in Git before it has content. Keep post scripts in `src/`.
 
-Supporting research notes may go in an optional `notes/` directory. Keep other generated documents, such as a compiled PDF, beside their source document unless a project needs a separate location.
+Supporting research notes and model write-ups go in an optional `notes/` directory. Keep compiled PDFs beside their Typst source unless a project needs a separate location.
 
 ## Writing and review skills
 
-Repo-specific Codex skills live in `.agents/skills/`. Invoke one with its name, such as `$blog-eliciation`. That skill starts by asking for a pitch, interviews you one question at a time, and produces a bullet outline with one claim per planned paragraph.
+The shared skill sources live in `.agents/skills/`. In Codex, invoke one by name, such as `$blog-eliciation`. In Claude Code, start a session in this repository and invoke `/blog-eliciation`; the links in `.claude/skills/` let Claude find the same skill files. Claude Code's `/skills` command lists the skills it has discovered. The elicitation skill asks for a pitch, interviews you one question at a time, and produces a bullet outline with one claim per planned paragraph.
 
 The usual post starts with a concrete puzzle, uses a simple model and a worked example to trace the mechanism, and closes with a conditional answer. Keep model results distinct from empirical evidence. The full voice guide and published examples live with `style-guide-editor`.
 
@@ -69,7 +69,7 @@ Run a new post's script from the repository root with `uv run python blogs/topic
 
 Some posts have their own `justfile` with model and figure recipes. For example, `just -f blogs/demand_for_investment_is_inelastic/justfile plots` uses its saved model results to make figures, while `just -f blogs/social_mobility_and_innovation/justfile simulate` runs its baseline simulation. Run `just -f path/to/justfile --list` to see a post's recipes. The demand model's `solve` recipe takes about 30–40 minutes.
 
-Typst is needed for `.typ` documents. Compile a new note with `typst compile math_notes/model_slug/note.typ math_notes/model_slug/note.pdf`. For an existing example, `just -f blogs/demand_for_investment_is_inelastic/justfile compile` builds its supplemental model note. Some Typst documents embed generated figures, so generate those figures before compiling.
+Typst is needed for `.typ` documents. Compile a new note with `typst compile math_notes/model_slug/note.typ math_notes/model_slug/note.pdf`. For an existing example, `just -f blogs/demand_for_investment_is_inelastic/justfile compile` builds its supplemental model note in `notes/`. When a Typst source in `notes/` embeds figures from a sibling directory, compile with `--root` set to the post directory; the post's Just recipes do this. Generate any embedded figures before compiling.
 
 Figures and model results are currently versioned beside drafts. Keep outputs that a draft or model document uses, and review generated changes before committing. Diagnostic `smoke` and `check` outputs should be considered individually.
 

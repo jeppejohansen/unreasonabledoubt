@@ -14,7 +14,7 @@ plots:
 
 # Compile the Typst model note to PDF (requires typst)
 compile:
-    typst compile model-framework.typ model-framework.pdf
+    typst compile --root . notes/model-framework.typ notes/model-framework.pdf
 
 # Run everything: solve model then generate plots
 all: solve plots

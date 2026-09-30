@@ -196,7 +196,7 @@ Moreover, under this construction the parent-child talent correlation is exactly
 The next figure isolates the talent transmission rule itself using synthetic draws from the model's inheritance/redraw mechanism. The panels show parent talent on the x-axis and child talent on the y-axis for three values of $omega$. As $omega$ rises, more mass lies on the 45-degree line (exact inheritance), while the redraw component continues to fill the unit square.
 
 #figure(
-  image("figures/talent_transmission_omega_comparison.png", width: 100%),
+  image("../figures/talent_transmission_omega_comparison.png", width: 100%),
   caption: [Talent transmission illustration: parent-child talent mappings for $omega in {0.00, 0.50, 1.00}$ under the inherit-or-redraw rule with $U(0,1)$ parent talent and redraws.],
 )
 
@@ -205,7 +205,7 @@ The next figure isolates the talent transmission rule itself using synthetic dra
 The original single-panel isoquant plot was hard to compare across values of $rho$. The next figure shows five isoquant panels in a common layout, with one factor on each axis, holding technology fixed and varying only $rho$ so the substitution geometry is directly visible (including near-Leontief and near-linear cases).
 
 #figure(
-  image("figures/social_mobility_innovation_final_production_isoquants.png", width: 100%),
+  image("../figures/social_mobility_innovation_final_production_isoquants.png", width: 100%),
   caption: [CES production isoquants in $(Q_B, Q_W)$ space for $rho in {0.05, 0.25, 0.50, 0.75, 0.95}$, shown in a common-layout comparison with shared contour levels. Higher $rho$ corresponds to greater substitutability in this parameterization.],
 )
 
@@ -218,19 +218,19 @@ This final section collects all simulation-based figures in one place.
 The figures in this block are all generated from the same simulation run (same DGP) and read from files with stem `social_mobility_innovation_final` (the output stem used by the `just simulate` command). The goal is to show, in one place, the joint behavior of technology, wages, mobility, sorting, and talent allocation before moving to comparative exercises.
 
 #figure(
-  image("figures/social_mobility_innovation_final.png", width: 95%),
+  image("../figures/social_mobility_innovation_final.png", width: 95%),
   caption: [Simulation overview (single DGP): technology, wage rates, occupation shares/mobility, and occupation-specific talent distributions (fan plots).],
 )
 
 *Baseline choice diagnostics (goal: show how talent and parental background shape occupational choice)*
 
 #figure(
-  image("figures/social_mobility_innovation_final_p_w_talent_snapshots.png", width: 95%),
+  image("../figures/social_mobility_innovation_final_p_w_talent_snapshots.png", width: 95%),
   caption: [Period 1 and period T (same DGP): talent vs occupation choice (overall), shown as empirical white-collar shares by talent bin and model-implied $p_W$.],
 )
 
 #figure(
-  image("figures/social_mobility_innovation_final_p_w_talent_by_background_snapshots.png", width: 95%),
+  image("../figures/social_mobility_innovation_final_p_w_talent_by_background_snapshots.png", width: 95%),
   caption: [Period 1 and period T (same DGP): talent vs occupation choice conditional on parental background ($W$-parent vs $B$-parent), with model-implied conditional $p_W$.],
 )
 
@@ -241,7 +241,7 @@ The two $p_W$ plots above show conditional choice probabilities by talent bin (a
 The next figure shows the actual raw talent sums $H_W$ and $H_B$ over time (the objects that drive technology in the current law of motion), together with the implied technology gap and composition diagnostics, for the same DGP.
 
 #figure(
-  image("figures/social_mobility_innovation_final_talent_allocation_diagnostics.png", width: 95%),
+  image("../figures/social_mobility_innovation_final_talent_allocation_diagnostics.png", width: 95%),
   caption: [Same DGP: raw talent sums by sector over time, talent-gap vs technology-gap, worker earnings by occupation (fan plots), and average talent by occupation with headcount shares.],
 )
 
@@ -253,66 +253,66 @@ The figures below compare three deterministic grid simulations with $eta_W = 1.2
 *Case A: lower substitutability ($rho = 0.25$)*
 
 #figure(
-  image("figures/social_mobility_innovation_eta125_rho025.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta125_rho025.png", width: 95%),
   caption: [Simulation overview with $eta_W = 1.25$, $eta_B = 1.0$, and $rho = 0.25$.],
 )
 
 #figure(
-  image("figures/social_mobility_innovation_eta125_rho025_p_w_talent_snapshots.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta125_rho025_p_w_talent_snapshots.png", width: 95%),
   caption: [Occupation choice vs talent (overall) with $eta_W = 1.25$, $eta_B = 1.0$, and $rho = 0.25$.],
 )
 
 #figure(
-  image("figures/social_mobility_innovation_eta125_rho025_p_w_talent_by_background_snapshots.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta125_rho025_p_w_talent_by_background_snapshots.png", width: 95%),
   caption: [Occupation choice vs talent by parental background with $eta_W = 1.25$, $eta_B = 1.0$, and $rho = 0.25$.],
 )
 
 #figure(
-  image("figures/social_mobility_innovation_eta125_rho025_talent_allocation_diagnostics.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta125_rho025_talent_allocation_diagnostics.png", width: 95%),
   caption: [Talent allocation diagnostics with $eta_W = 1.25$, $eta_B = 1.0$, and $rho = 0.25$.],
 )
 
 *Case B: intermediate substitutability ($rho = 0.50$)*
 
 #figure(
-  image("figures/social_mobility_innovation_eta125_rho050.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta125_rho050.png", width: 95%),
   caption: [Simulation overview with $eta_W = 1.25$, $eta_B = 1.0$, and $rho = 0.50$.],
 )
 
 #figure(
-  image("figures/social_mobility_innovation_eta125_rho050_p_w_talent_snapshots.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta125_rho050_p_w_talent_snapshots.png", width: 95%),
   caption: [Occupation choice vs talent (overall) with $eta_W = 1.25$, $eta_B = 1.0$, and $rho = 0.50$.],
 )
 
 #figure(
-  image("figures/social_mobility_innovation_eta125_rho050_p_w_talent_by_background_snapshots.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta125_rho050_p_w_talent_by_background_snapshots.png", width: 95%),
   caption: [Occupation choice vs talent by parental background with $eta_W = 1.25$, $eta_B = 1.0$, and $rho = 0.50$.],
 )
 
 #figure(
-  image("figures/social_mobility_innovation_eta125_rho050_talent_allocation_diagnostics.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta125_rho050_talent_allocation_diagnostics.png", width: 95%),
   caption: [Talent allocation diagnostics with $eta_W = 1.25$, $eta_B = 1.0$, and $rho = 0.50$.],
 )
 
 *Case C: higher substitutability ($rho = 0.75$)*
 
 #figure(
-  image("figures/social_mobility_innovation_eta125_rho075.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta125_rho075.png", width: 95%),
   caption: [Simulation overview with $eta_W = 1.25$, $eta_B = 1.0$, and $rho = 0.75$.],
 )
 
 #figure(
-  image("figures/social_mobility_innovation_eta125_rho075_p_w_talent_snapshots.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta125_rho075_p_w_talent_snapshots.png", width: 95%),
   caption: [Occupation choice vs talent (overall) with $eta_W = 1.25$, $eta_B = 1.0$, and $rho = 0.75$.],
 )
 
 #figure(
-  image("figures/social_mobility_innovation_eta125_rho075_p_w_talent_by_background_snapshots.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta125_rho075_p_w_talent_by_background_snapshots.png", width: 95%),
   caption: [Occupation choice vs talent by parental background with $eta_W = 1.25$, $eta_B = 1.0$, and $rho = 0.75$.],
 )
 
 #figure(
-  image("figures/social_mobility_innovation_eta125_rho075_talent_allocation_diagnostics.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta125_rho075_talent_allocation_diagnostics.png", width: 95%),
   caption: [Talent allocation diagnostics with $eta_W = 1.25$, $eta_B = 1.0$, and $rho = 0.75$.],
 )
 
@@ -321,21 +321,21 @@ The figures below compare three deterministic grid simulations with $eta_W = 1.2
 The figures below show a deterministic grid simulation with strong talent sorting at low substitutability: $rho = 0.25$, $eta_W = 2.0$, $eta_B = 1.0$, $phi = 0.05$, $c_g = 0.15$, and $omega = 0.70$. This run is generated by `just simulate-rho025-highsorting`.
 
 #figure(
-  image("figures/social_mobility_innovation_eta200_rho025_highsorting.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta200_rho025_highsorting.png", width: 95%),
   caption: [Simulation overview for a high-sorting specification with $rho = 0.25$, $eta_W = 2.0$, and low noise ($phi = 0.05$).],
 )
 
 #figure(
-  image("figures/social_mobility_innovation_eta200_rho025_highsorting_p_w_talent_snapshots.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta200_rho025_highsorting_p_w_talent_snapshots.png", width: 95%),
   caption: [Occupation choice vs talent (overall) for the high-sorting low-$rho$ specification.],
 )
 
 #figure(
-  image("figures/social_mobility_innovation_eta200_rho025_highsorting_p_w_talent_by_background_snapshots.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta200_rho025_highsorting_p_w_talent_by_background_snapshots.png", width: 95%),
   caption: [Occupation choice vs talent by parental background for the high-sorting low-$rho$ specification.],
 )
 
 #figure(
-  image("figures/social_mobility_innovation_eta200_rho025_highsorting_talent_allocation_diagnostics.png", width: 95%),
+  image("../figures/social_mobility_innovation_eta200_rho025_highsorting_talent_allocation_diagnostics.png", width: 95%),
   caption: [Talent allocation diagnostics for the high-sorting low-$rho$ specification.],
 )

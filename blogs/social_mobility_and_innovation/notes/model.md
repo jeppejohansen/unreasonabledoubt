@@ -20,7 +20,7 @@ The core idea is:
 
 ## Conceptual model (Typst document)
 
-The formal write-up is in `blogs/social_mobility_and_innovation/model.typ`.
+The formal write-up is in `blogs/social_mobility_and_innovation/notes/model.typ`.
 
 ### Agents and state
 
@@ -205,7 +205,7 @@ So the simplest workflow is:
 
 ```bash
 uv run python blogs/social_mobility_and_innovation/src/simulate_model.py --rho 0.9
-typst compile blogs/social_mobility_and_innovation/model.typ blogs/social_mobility_and_innovation/model.pdf
+typst compile --root blogs/social_mobility_and_innovation blogs/social_mobility_and_innovation/notes/model.typ blogs/social_mobility_and_innovation/notes/model.pdf
 ```
 
 If you use a custom `--output-stem`, the document will not update unless you also change the image paths in `model.typ`.
@@ -225,7 +225,7 @@ These are not bugs, but they matter for interpretation:
 
 If you are trying to understand or extend the model:
 
-1. Read the equations in `blogs/social_mobility_and_innovation/model.typ`
+1. Read the equations in `blogs/social_mobility_and_innovation/notes/model.typ`
 2. Read `blogs/social_mobility_and_innovation/src/simulate_model.py` top-to-bottom once
 3. Inspect the talent-allocation diagnostics figure first when something looks surprising
 4. Check the parameter footer on each figure before interpreting differences
