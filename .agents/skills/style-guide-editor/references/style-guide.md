@@ -1,6 +1,6 @@
 # Unreasonable Doubt — Voice and Style Guide
 
-This guide draws on the two published posts in `published_posts/`. Their extracted text contains PDF and web-page artifacts; use the posts for their reasoning and voice, not those artifacts.
+This guide draws on [the Tinder post](<published_posts/Why Tinder Benefits the Beautiful.md>) and [the housing post](<published_posts/Why New Housing Lowers or Raises Rents.md>). Their figures remain in the accompanying PDFs.
 
 ## Shape of an argument
 
