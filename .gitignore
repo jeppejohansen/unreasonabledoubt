@@ -212,3 +212,7 @@ __marimo__/
 # Local instructions for coding assistants. Repository guidance lives in README.md.
 /AGENTS.md
 /CLAUDE.md
+
+# Ruskin prose annotations (local review state)
+/.ruskin/
+/.ruskin.toml
