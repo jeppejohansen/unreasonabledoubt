@@ -9,9 +9,9 @@ make-blog slug:
     @test ! -e "blogs/$1" && test ! -L "blogs/$1" || { echo "Already exists: blogs/$1" >&2; exit 1; }
     @mkdir "blogs/$1"
     @touch "blogs/$1/blog.md"
-    @mkdir "blogs/$1/src" "blogs/$1/assets" "blogs/$1/data" "blogs/$1/figures" "blogs/$1/tables"
-    @touch "blogs/$1/src/.gitkeep" "blogs/$1/assets/.gitkeep" "blogs/$1/data/.gitkeep" "blogs/$1/figures/.gitkeep" "blogs/$1/tables/.gitkeep"
-    @echo "Created blogs/$1/blog.md with src/, assets/, data/, figures/, and tables/."
+    @mkdir "blogs/$1/src" "blogs/$1/assets" "blogs/$1/data" "blogs/$1/figures" "blogs/$1/tables" "blogs/$1/notes"
+    @touch "blogs/$1/src/.gitkeep" "blogs/$1/assets/.gitkeep" "blogs/$1/data/.gitkeep" "blogs/$1/figures/.gitkeep" "blogs/$1/tables/.gitkeep" "blogs/$1/notes/.gitkeep"
+    @echo "Created blogs/$1/blog.md with src/, assets/, data/, figures/, tables/, and notes/."
 
 # Create a Typst math note and its working directories.
 [arg("slug", pattern="[a-z][a-z0-9]*(?:_[a-z0-9]+)*")]
