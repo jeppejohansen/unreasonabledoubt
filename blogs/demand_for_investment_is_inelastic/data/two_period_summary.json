@@ -1,0 +1,123 @@
+{
+  "description": "Illustrative two-period model; one period is not calibrated to one year.",
+  "parameters": {
+    "y": 1.0,
+    "beta": 0.6,
+    "gamma": 5.0,
+    "bond_payoff": 0.3,
+    "stock_payoff_low": 0.17,
+    "stock_payoff_high": 0.23,
+    "probability_high": 0.5,
+    "workers": 1.0
+  },
+  "smoothing": {
+    "initial": {
+      "saving": 0.46100633233957583,
+      "c0": 0.5389936676604241,
+      "c1": 0.49327677560334615,
+      "utility": -5.495683253902124
+    },
+    "compensated": {
+      "c0": 0.529801030201305,
+      "c1": 0.5041174363127846,
+      "compensated_y": 0.9175836735188316
+    },
+    "new": {
+      "saving": 0.4226128412141676,
+      "c0": 0.5773871587858324,
+      "c1": 0.5493966935784179,
+      "utility": -3.8958695317735383
+    },
+    "r_initial": 1.07,
+    "r_new": 1.3
+  },
+  "portfolio_at_mean_stock_return_1_12": {
+    "0.16": {
+      "alpha": 0.44072357153960096,
+      "saving": 0.459014109007601,
+      "saving_rate": 0.459014109007601
+    },
+    "0.22": {
+      "alpha": 0.2272303133857076,
+      "saving": 0.4599656057289508,
+      "saving_rate": 0.4599656057289508
+    }
+  },
+  "demographic": {
+    "0.9": {
+      "workers": 0.9,
+      "c0_each": 0.5781839818938499,
+      "saving_each": 0.4218160181061501,
+      "worker_cohort_saving": 0.3796344162955351,
+      "c1_low_each": 0.5222222222222221,
+      "c1_high_each": 0.5888888888888889,
+      "stock_price": 0.14779694356444242,
+      "bond_price": 0.2318374727310925,
+      "total_price": 0.37963441629553496,
+      "stock_value_share": 0.3893138693974114,
+      "expected_stock_return": 1.353207956650308,
+      "safe_return": 1.2940099651102088
+    },
+    "1.0": {
+      "workers": 1.0,
+      "c0_each": 0.5405975882968408,
+      "saving_each": 0.4594024117031592,
+      "worker_cohort_saving": 0.4594024117031592,
+      "c1_low_each": 0.47,
+      "c1_high_each": 0.53,
+      "stock_price": 0.1788517305106599,
+      "bond_price": 0.28055068119250015,
+      "total_price": 0.45940241170316004,
+      "stock_value_share": 0.3893138693974114,
+      "expected_stock_return": 1.118244701513132,
+      "safe_return": 1.0693255091195257
+    },
+    "1.1": {
+      "workers": 1.1,
+      "c0_each": 0.5078551788227657,
+      "saving_each": 0.49214482117723435,
+      "worker_cohort_saving": 0.5413593032949578,
+      "c1_low_each": 0.4272727272727272,
+      "c1_high_each": 0.4818181818181818,
+      "stock_price": 0.21075868510004694,
+      "bond_price": 0.3306006181949111,
+      "total_price": 0.5413593032949581,
+      "stock_value_share": 0.3893138693974114,
+      "expected_stock_return": 0.9489525895697262,
+      "safe_return": 0.9074393194967652
+    }
+  },
+  "stock_return_shock": {
+    "lower_stock_payoff_factor": 0.9,
+    "baseline": {
+      "workers": 1.0,
+      "c0_each": 0.5405975882968408,
+      "saving_each": 0.4594024117031592,
+      "worker_cohort_saving": 0.4594024117031592,
+      "c1_low_each": 0.47,
+      "c1_high_each": 0.53,
+      "stock_price": 0.1788517305106599,
+      "bond_price": 0.28055068119250015,
+      "total_price": 0.45940241170316004,
+      "stock_value_share": 0.3893138693974114,
+      "expected_stock_return": 1.118244701513132,
+      "safe_return": 1.0693255091195257
+    },
+    "lower_stock_payoff": {
+      "workers": 1.0,
+      "c0_each": 0.526790586668634,
+      "saving_each": 0.473209413331366,
+      "worker_cohort_saving": 0.473209413331366,
+      "c1_low_each": 0.453,
+      "c1_high_each": 0.507,
+      "stock_price": 0.17281806349594603,
+      "bond_price": 0.30039134983542004,
+      "total_price": 0.47320941333136607,
+      "stock_value_share": 0.36520419633945395,
+      "expected_stock_return": 1.041557788339773,
+      "safe_return": 0.9986972000504193
+    },
+    "stock_price_elasticity_fixed_safe_return": -23.7750663808937,
+    "stock_price_elasticity_safe_market_clears": -1.4248619937396547
+  }
+}
