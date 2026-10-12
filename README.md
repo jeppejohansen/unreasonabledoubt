@@ -6,7 +6,7 @@ Drafts, models, and supporting material for Unreasonable Doubt blog posts.
 
 Each blog lives under `blogs/<slug>/`, and each standalone math note lives under `math_notes/<slug>/`.
 
-- `blogs/` contains `policy_arguments_framework`, `demand_for_investment_is_inelastic`, `social_mobility_and_innovation`, `market_monetarism`, `land_value_tax_1`, and `jiu_jitsu_and_monopsony`.
+- `blogs/` contains `policy_arguments_framework`, `demand_for_investment_is_inelastic`, `social_mobility_and_innovation`, `market_monetarism`, `land_value_tax_1`, `jiu_jitsu_and_monopsony`, `danish_farms_are_too_leveraged`, and `regulation_on_interfaces`.
 - `math_notes/` contains `market_monetarist_math` and `deontic_logic_and_set_theory`.
 - `.agents/skills/` contains the repo's writing, research, model, and figure workflows. `.claude/skills/` links to the same skills for Claude Code. The style skill keeps the writing guide and published post references under `references/`.
 - `templates/math_note.typ` seeds new math notes.
