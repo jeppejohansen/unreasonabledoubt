@@ -33,10 +33,12 @@
 
 = Primitives
 
-- *Dates and people.* There are dates $0$ (working) and $1$ (retirement), and $n > 0$ identical workers. One aggregate unit of each claim is sold at date 0 by initial owners. The claims pay once at date 1 and then expire.
-- *Endowments.* Each worker receives $y > 0$ units of date-0 goods and no date-1 labor income. Payoffs at date 1 come from an exogenous resource stream. The safe payoff can be thought of as externally backed; its fiscal backing is outside this model. Initial owners receive the date-0 sale proceeds. Their choices are outside the model.
+- *Dates and people.* There are dates $0$ (working) and $1$ (retirement), and $n > 0$ identical workers. Initial owners sell existing claims at date 0 and receive the proceeds. Their choices are outside the model. The claims pay once at date 1 and then expire.
+- *Endowments.* Each worker receives $y > 0$ units of date-0 goods and no date-1 labor income. Claim payoffs at date 1 come from exogenous resources; the issuer's production or fiscal budget is outside the model.
 - *Preferences.* Each worker maximizes $u(c_0) + beta E[u(c_1)]$, with $beta > 0$. For $gamma > 0$, marginal utility is $u'(c) = c^(-gamma)$. When $gamma != 1$, $u(c) = c^(1-gamma)/(1-gamma)$; when $gamma = 1$, $u(c) = ln c$.
 - *Claims.* The stock pays $D^L$ in the low state and $D^H$ in the high state, with probabilities $1-p$ and $p$. The safe claim pays $B > 0$ in either state. Both stock payoffs are positive. Their date-0 prices are $P_s$ and $P_b$.
+- *Risky-claim supply.* Exactly one aggregate stock claim exists at every candidate price, a vertical supply schedule: $bar(Q)_s=1$. There is no share issuance, repurchase, or investment choice. A shock to $D^L$ or $D^H$ changes the payout *per claim*, not the number of stock claims.
+- *Safe-claim supply.* Exactly one aggregate safe claim exists at every candidate price, also a vertical supply schedule: $bar(Q)_b=1$. The model has no new bond issuance or collateral creation when the safe price rises or its yield falls. The promise of $B$ in either state is taken as backed by resources outside the model. More issuance would require a specified source of future goods or taxes to pay $B$ on each new claim.
 - *Holdings and budgets.* A worker buys $q_s$ stock units and $q_b$ safe units:
   $ c_0 + P_s q_s + P_b q_b = y, quad c_1^j = D^j q_s + B q_b, quad j in {L,H}. $
   We require $q_s, q_b >= 0$. Saving is the *worker's date-0 flow* $s = y-c_0 = P_s q_s + P_b q_b$. This is spending on assets, not net saving for the whole economy. Its stock share by market value is $alpha = P_s q_s/s$.
@@ -50,13 +52,14 @@
 - *Portfolio condition.* At an interior stock share, the extra risky payoff must have zero marginal-utility-weighted value:
   $ E[(R_s^j-R_b)(c_1^j)^(-gamma)] = 0. $
   If this expression is nonpositive at $alpha=0$, hold no stock; if nonnegative at $alpha=1$, put all saving in stock.
-- *Market clearing.* There is one unit of each claim, so $n q_s = 1$ and $n q_b = 1$. Equivalently, $n alpha s = P_s$ and $n(1-alpha)s = P_b$. Thus each worker's retirement consumption is $c_1^j = (D^j+B)/n$.
+- *Market clearing.* The fixed supply schedules imply $n q_s = 1$ and $n q_b = 1$. Equivalently, $n alpha s = P_s$ and $n(1-alpha)s = P_b$. Each worker holds $1/n$ physical units of *each* claim in every equilibrium; changes in portfolio value shares reflect prices, while demand at old prices can shift. Retirement consumption is $c_1^j = (D^j+B)/n$.
 - *Prices.* Let $c_0=y-s$. The two asset-pricing conditions become
   $ P_s = beta c_0^gamma E[D^j (c_1^j)^(-gamma)], quad P_b = beta c_0^gamma E[B(c_1^j)^(-gamma)]. $
   Together with $n y = n c_0 + P_s + P_b$, these determine consumption, saving, portfolio shares and prices.
 - *A one-equation solution.* Substitute $c_1^j=(D^j+B)/n$ into the sum of the two price equations. The unique positive solution for $c_0$ satisfies
   $ y = c_0 + beta n^(gamma-1)c_0^gamma E[(D^j+B)^(1-gamma)]. $
   The code solves this monotone equation, then computes the two prices separately. This is the complete two-period market-clearing model used in the market-clearing figures.
+- *What the supply assumption does.* The safe-supply line in Graph 6 is vertical. When weaker stock payouts raise desired safe holdings at the old prices, no new safe units appear; $P_b$ rises and $R_b=B/P_b$ falls. With an upward-sloping safe supply schedule, some demand could instead produce new claims, so the price and return changes could be smaller. The same issue applies to stock issuance. Modeling either response requires an issuer and the resources backing its new claims.
 
 == Illustrative values used below
 
@@ -68,8 +71,6 @@
 
 - *Code.* From the repository root run ` uv run python blogs/demand_for_investment_is_inelastic/src/two_period_model.py `. It writes seven figures to `figures/` and selected values to `data/two_period_summary.json`.
 - *PDF.* From this post directory run ` typst compile --root . notes/two_period_model.typ notes/two_period_model.pdf `.
-
-#pagebreak()
 
 = Graph 1: a higher safe return
 
@@ -149,7 +150,7 @@
 
 - *Specify the cause.* In this model $mu = E[D]/P_s$ is the expected *gross* stock return. A lower $mu$ can come from weaker future payouts or from a higher price paid for unchanged payouts. Those shocks need not change consumption or saving in the same way. The Gordon perpetuity analogy adds resale value; here the stock is a terminal claim.
 - *The experiment here.* Reduce both stock payouts by $10%$: $(D^L,D^H)=(0.17,0.23)$ becomes $(0.153,0.207)$. Keep current earnings, the safe payoff, preferences and the number of workers fixed. Re-solve *both* asset markets. Expected stock payout falls from $0.20$ to $0.18$; the stock price adjusts from $0.179$ to $0.173$. Thus its expected *net* return falls from $11.8%$ to $4.2%$ per model period.
-- *Portfolio substitution and the safe price.* The stock is less attractive relative to the safe claim. Workers direct a smaller share of their asset spending to stock ($38.9%$ to $36.5%$). Competition for the one safe claim raises its price from $0.281$ to $0.300$, so its net return falls from $6.9%$ to about $-0.1%$. These are equilibrium prices; the safe return cannot be held fixed for this comparison.
+- *Demand for safety and the safe price.* At the old prices, the weaker stock payoff raises desired safe holdings. With one unit of each claim available, the final physical holdings remain $1/n$ per worker; prices adjust instead. The stock receives a smaller share of asset spending ($38.9%$ to $36.5%$). The safe price rises from $0.281$ to $0.300$, so its net return falls from $6.9%$ to about $-0.1%$. This yield response is conditional on fixed safe supply.
 - *Saving and consumption.* Stock spending falls from $0.179$ to $0.173$, while safe-claim spending rises from $0.281$ to $0.300$. Total worker saving rises from $0.459$ to $0.473$, or by $1.38$ percentage points of unchanged earnings. Current consumption falls from $0.541$ to $0.527$. Expected retirement consumption falls from $0.500$ to $0.480$ because total future payouts are lower. The weaker future resource stream makes workers poorer; they reduce present consumption to cushion retirement. Substitution away from lower-return future consumption works against that saving response.
 - *An exact saving sign.* Write $T^j=D^j+B$. The full-model equation contains $E[(T^j)^(1-gamma)]$. When every $T^j$ falls, this expectation rises if $gamma>1$, so its unique solution has lower $c_0$ and higher $s=y-c_0$. At $gamma=1$ saving is unchanged; for $gamma<1$ it falls. Here $1/gamma$ is the elasticity of intertemporal substitution. Consumption smoothing alone does not fix the saving sign.
 - *Limits to the conjecture.* A fall in $mu$ alone does not imply that both dates' consumption fall or that workers rotate into safe claims. If only $beta$ rises from $0.60$ to $0.75$, stock return falls from $11.8%$ to $7.3%$ and safe return from $6.9%$ to $2.6%$. Saving rises from $0.459$ to $0.479$, yet expected retirement consumption stays at $0.500$ and the stock spending share stays at $38.9%$. Future payoffs did not change.

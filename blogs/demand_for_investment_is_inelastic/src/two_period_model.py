@@ -4,8 +4,9 @@ Run from the repository root with:
     uv run python blogs/demand_for_investment_is_inelastic/src/two_period_model.py
 
 The model is deliberately a one-shot exchange economy. A cohort of workers
-buys existing claims from initial owners; the claims pay at retirement. It
-prices existing assets but contains no firm decision to create new capital.
+buys one aggregate unit of each existing claim from initial owners, regardless
+of price. The claims pay at retirement from exogenous resources. There is no
+new stock or safe-claim issuance, and no firm decision to create new capital.
 All quantities are illustrative model-period units, not annual calibration.
 """
 
