@@ -69,7 +69,7 @@
 
 == Reproduce the figures
 
-- *Code.* From the repository root run ` uv run python blogs/demand_for_investment_is_inelastic/src/two_period_model.py `. It writes seven figures to `figures/` and selected values to `data/two_period_summary.json`.
+- *Code.* From the repository root run ` uv run python blogs/demand_for_investment_is_inelastic/src/two_period_model.py `. It writes nine figures to `figures/` and selected values to `data/two_period_summary.json`.
 - *PDF.* From this post directory run ` typst compile --root . notes/two_period_model.typ notes/two_period_model.pdf `.
 
 = Graph 1: a higher safe return
@@ -151,7 +151,7 @@
 - *Specify the cause.* In this model $mu = E[D]/P_s$ is the expected *gross* stock return. A lower $mu$ can come from weaker future payouts or from a higher price paid for unchanged payouts. Those shocks need not change consumption or saving in the same way. The Gordon perpetuity analogy adds resale value; here the stock is a terminal claim.
 - *The experiment here.* Reduce both stock payouts by $10%$: $(D^L,D^H)=(0.17,0.23)$ becomes $(0.153,0.207)$. Keep current earnings, the safe payoff, preferences and the number of workers fixed. Re-solve *both* asset markets. Expected stock payout falls from $0.20$ to $0.18$; the stock price adjusts from $0.179$ to $0.173$. Thus its expected *net* return falls from $11.8%$ to $4.2%$ per model period.
 - *Demand for safety and the safe price.* At the old prices, the weaker stock payoff raises desired safe holdings. With one unit of each claim available, the final physical holdings remain $1/n$ per worker; prices adjust instead. The stock receives a smaller share of asset spending ($38.9%$ to $36.5%$). The safe price rises from $0.281$ to $0.300$, so its net return falls from $6.9%$ to about $-0.1%$. This yield response is conditional on fixed safe supply.
-- *Saving and consumption.* Stock spending falls from $0.179$ to $0.173$, while safe-claim spending rises from $0.281$ to $0.300$. Total worker saving rises from $0.459$ to $0.473$, or by $1.38$ percentage points of unchanged earnings. Current consumption falls from $0.541$ to $0.527$. Expected retirement consumption falls from $0.500$ to $0.480$ because total future payouts are lower. The weaker future resource stream makes workers poorer; they reduce present consumption to cushion retirement. Substitution away from lower-return future consumption works against that saving response.
+- *Saving and consumption.* Stock spending falls from $0.179$ to $0.173$, while safe-claim spending rises from $0.281$ to $0.300$. Total worker saving rises from $0.459$ to $0.473$, or by $1.38$ percentage points of unchanged earnings. Current consumption falls from $0.541$ to $0.527$. Expected retirement consumption falls from $0.500$ to $0.480$ because total future payouts are lower. Workers cut current consumption and bid more for the existing claims; higher asset spending does not create more future goods. Substitution away from lower-return future consumption works against the saving response.
 - *An exact saving sign.* Write $T^j=D^j+B$. The full-model equation contains $E[(T^j)^(1-gamma)]$. When every $T^j$ falls, this expectation rises if $gamma>1$, so its unique solution has lower $c_0$ and higher $s=y-c_0$. At $gamma=1$ saving is unchanged; for $gamma<1$ it falls. Here $1/gamma$ is the elasticity of intertemporal substitution. Consumption smoothing alone does not fix the saving sign.
 - *Limits to the conjecture.* A fall in $mu$ alone does not imply that both dates' consumption fall or that workers rotate into safe claims. If only $beta$ rises from $0.60$ to $0.75$, stock return falls from $11.8%$ to $7.3%$ and safe return from $6.9%$ to $2.6%$. Saving rises from $0.459$ to $0.479$, yet expected retirement consumption stays at $0.500$ and the stock spending share stays at $38.9%$. Future payoffs did not change.
 
@@ -179,3 +179,35 @@
 
 - *Define the elasticity first.* For one fixed stock payout stream, measure the local response of desired *physical stock units* to their own price near the initial equilibrium: $epsilon_(q_s,P_s) = d ln q_s / d ln P_s$. A price increase means a lower offered $mu=E[D]/P_s$. The dotted schedule in Graph 6, with the safe return held fixed, gives $epsilon approx -23.8$; the teal schedule, with the safe market clearing at each candidate stock price, gives $epsilon approx -1.42$.
 - *Interpretation.* Safe-price adjustment sharply reduces the stock-demand response, so the cross-market effect matters. Yet $abs(epsilon) > 1$ in this calibration, so physical stock demand is still elastic by the usual own-price definition. These are local conditional-demand slopes, not an estimate of an empirical market-capitalization response to flows. The $10%$ payout cut also changes the demand schedule itself, so the two colored equilibrium dots should not be used as a single-curve elasticity calculation.
+
+#pagebreak()
+
+= What kind of model is this?
+
+- *The story in plain language.* Workers earn now and buy claims on future goods: one has a risky payout, the other a fixed payout. The claims already exist. More desire to hold them changes their prices; it does not create new claims or future goods.
+- *Why "Lucas tree style"?* #link("https://www.economics.utoronto.ca/adamopou/lucas_ap.pdf")[Lucas (1978)] prices shares in exogenous output. Our risky claim works similarly, but pays only once. The safe claim has an externally backed positive supply. This is a two-period teaching version, not Lucas's continuing economy.
+- *Why does saving rise here?* Lower stock payouts reduce retirement resources. With $gamma=5$, workers spend more of today's income bidding for the remaining claims; current consumption falls, while future aggregate goods still fall. For this shock, saving rises when $gamma>1$. That is a standard income-versus-substitution result under these preferences, not a named theorem about stock demand.
+- *Where does safe-asset scarcity enter?* Weaker stock payouts raise the desire to hold the one safe claim. Its price rises and its yield falls. #link("https://economics.mit.edu/sites/default/files/publications/jep.31.3.29.pdf")[Caballero, Farhi, and Gourinchas] study the wider question of who supplies safe assets; this model leaves issuers outside.
+- *Why is this not the inelastic-markets hypothesis?* #link("https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3875134")[Gabaix and Koijen] study large price responses to flows when institutions change equity positions only a little. Here freely optimizing households face a payout shock, and the computed local stock-demand elasticity is $-1.42$ with the safe market clearing. This is not their empirical flow result.
+- *Name to use.* "Two-period exchange asset-pricing model with CRRA preferences and fixed claim supplies" is accurate. "Lucas tree style" is shorthand for its risky claim, not a name for the whole construction.
+
+== Graph 8: put the asset prices on the axes
+
+- *Read both panels the same way.* Price is vertical, claims desired horizontal, and the black line is one claim supplied. At each candidate stock price the safe market clears; at each candidate safe price the stock market clears. Only each colored dot clears *both* markets. The panels use different price scales.
+- *The payout shock moves demand.* Stock price falls from $0.179$ to $0.173$; safe price rises from $0.281$ to $0.300$. Final physical holdings stay at one claim per market. Because the stock payout changes, the line joining the dots is *not* a demand curve or an elasticity estimate. The local stock-demand elasticity $-1.42$ is measured along the initial stock curve, holding its payout fixed.
+
+#figure(
+  image("../figures/two_period_claim_price_demand.png", width: 100%),
+  caption: [Model-implied conditional demand, with both prices visible. Teal is the initial stock payout stream; rust is the stream after a 10% cut. Each black vertical line marks one claim available. Prices are in date-0 goods per claim; panel scales differ.],
+)
+
+== Graph 9: prices across a range of stock returns
+
+- *Make the horizontal axis an outcome.* Scale both stock payouts from $85%$ to $105%$ of baseline and re-solve both markets at each value. The horizontal axis reports the resulting expected stock *net* return, $mu-1$; it is not set independently. The marked dots are the baseline and the $10%$ payout cut. The two price panels again have different vertical scales.
+- *Why the stock price and its return can both fall.* Along this payout path, moving from the baseline to the lower-payout dot cuts expected stock cash flow from $0.20$ to $0.18$, stock price from $0.179$ to $0.173$, and expected net return from $11.8%$ to $4.2%$. Cash flow falls faster than price. The grey dotted line holds expected cash flow at $0.20$ and merely applies $P_s=0.20/mu$: at a lower $mu$, *that* price rises. It is an accounting reference, not another equilibrium path.
+- *Safe-claim response.* Along the same full-equilibrium payout sweep, a lower expected stock return comes with a higher safe-claim price and a lower safe return. The association follows from this particular payout shock and fixed safe supply, not from $mu$ alone.
+
+#figure(
+  image("../figures/two_period_equilibrium_prices_vs_stock_return.png", width: 100%),
+  caption: [Full-model equilibria as the scale of stock payouts varies. Each point on the solid lines clears both markets. The dotted stock-price line holds expected payout fixed at $0.20$ and is only the identity $P_s=0.20/mu$.],
+)

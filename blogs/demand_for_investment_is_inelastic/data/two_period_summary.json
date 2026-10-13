@@ -119,5 +119,23 @@
     },
     "stock_price_elasticity_fixed_safe_return": -23.7750663808937,
     "stock_price_elasticity_safe_market_clears": -1.4248619937396547
+  },
+  "stock_payout_sweep": {
+    "stock_payout_factor_range": [
+      0.85,
+      1.05
+    ],
+    "expected_stock_net_return_range_pct": [
+      0.45245343169983965,
+      15.79456819034213
+    ],
+    "stock_price_range": [
+      0.16923429363085424,
+      0.18135565707607615
+    ],
+    "safe_price_range": [
+      0.31101438585030383,
+      0.2712757162962419
+    ]
   }
 }

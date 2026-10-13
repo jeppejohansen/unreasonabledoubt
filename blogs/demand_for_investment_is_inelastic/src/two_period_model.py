@@ -252,7 +252,7 @@ def plot_smoothing() -> dict:
     axes[0].annotate("Income endowment", (BASE.y, 0), xytext=(-100, 12),
                      textcoords="offset points", color=MUTED, fontsize=8)
     axes[0].set(xlim=(0.12, 1.04), ylim=(-0.03, 1.16), xlabel="Consumption now, c₀", ylabel="Consumption retired, c₁")
-    axes[0].legend(frameon=False, loc="upper right", fontsize=8)
+    axes[0].legend(frameon=False, loc="upper right", fontsize=9)
     finish_axis(axes[0], grid=False)
 
     axes[1].plot(x, r0 * (BASE.y - x), color=TEAL, lw=2.6)
@@ -427,6 +427,26 @@ def safe_units_at_price(mu: float, safe_price: float, p: Parameters) -> float:
     return p.workers * (1 - choice["alpha"]) * choice["saving"] / safe_price
 
 
+def stock_cleared_safe_schedule(safe_price: float, p: Parameters) -> dict:
+    """Clear the stock market at a candidate safe price; report safe demand."""
+    rb = p.bond_payoff / safe_price
+    mu = bisect_increasing(
+        lambda candidate: stock_units_with_fixed_safe_return(candidate, p, rb) - 1,
+        0.2, 3.0, iterations=55,
+    )
+    choice, stock_price = choice_at_candidate_stock_return(mu, p, rb)
+    stock_units = p.workers * choice["alpha"] * choice["saving"] / stock_price
+    safe_units = p.workers * (1 - choice["alpha"]) * choice["saving"] / safe_price
+    assert abs(stock_units - 1) < 1e-9
+    return {
+        "stock_price": stock_price,
+        "safe_price": safe_price,
+        "expected_stock_return": mu,
+        "stock_units_demanded": stock_units,
+        "safe_units_demanded": safe_units,
+    }
+
+
 def local_stock_price_elasticity(
     mu: float, p: Parameters, *, fixed_safe_return: float | None = None
 ) -> float:
@@ -545,6 +565,129 @@ def plot_lower_stock_return_comparison(shock: dict) -> None:
     save_figure(fig, "two_period_lower_stock_return_comparison.png")
 
 
+def plot_claim_price_demand(shock: dict) -> None:
+    """Plot price, rather than expected return, against conditional claim demand."""
+    lower_p = replace(
+        BASE,
+        stock_payoff_low=BASE.stock_payoff_low * shock["lower_stock_payoff_factor"],
+        stock_payoff_high=BASE.stock_payoff_high * shock["lower_stock_payoff_factor"],
+    )
+    cases = [
+        (BASE, shock["baseline"], TEAL, "-", "Initial stock payouts"),
+        (lower_p, shock["lower_stock_payoff"], RUST, "--", "Stock payouts 10% lower"),
+    ]
+    fig, axes = plt.subplots(1, 2, figsize=(10.2, 4.4))
+    stock_prices = np.linspace(0.155, 0.195, 90)
+    safe_prices = np.linspace(0.25, 0.33, 90)
+    for p, equilibrium, color, style, label in cases:
+        mean_d = (p.stock_payoff_low + p.stock_payoff_high) / 2
+        stock_demand = [
+            bond_cleared_stock_schedule(mean_d / float(price), p)["stock_units_demanded"]
+            for price in stock_prices
+        ]
+        safe_demand = [
+            stock_cleared_safe_schedule(float(price), p)["safe_units_demanded"]
+            for price in safe_prices
+        ]
+        axes[0].plot(stock_demand, stock_prices, color=color, lw=2.8, ls=style, label=label)
+        axes[1].plot(safe_demand, safe_prices, color=color, lw=2.8, ls=style)
+        axes[0].scatter(1, equilibrium["stock_price"], color=color, s=64, zorder=5)
+        axes[1].scatter(1, equilibrium["bond_price"], color=color, s=64, zorder=5)
+
+    for ax in axes:
+        ax.axvline(1, color=INK, lw=1.4, label="One claim available")
+        finish_axis(ax)
+    axes[0].set(
+        xlabel="Stock claims desired", ylabel="Stock price (date-0 goods)",
+        xlim=(0.64, 1.38), ylim=(0.155, 0.195),
+    )
+    axes[1].set(
+        xlabel="Safe claims desired", ylabel="Safe-claim price (date-0 goods)",
+        xlim=(0.70, 1.34), ylim=(0.25, 0.33),
+    )
+    axes[0].legend(frameon=False, loc="upper right", fontsize=8)
+    for ax, key, offsets in [
+        (axes[0], "stock_price", [(8, 7), (-47, -18)]),
+        (axes[1], "bond_price", [(8, -16), (8, 6)]),
+    ]:
+        for equilibrium, color, offset in [
+            (shock["baseline"], TEAL, offsets[0]),
+            (shock["lower_stock_payoff"], RUST, offsets[1]),
+        ]:
+            value = equilibrium[key]
+            ax.annotate(f"{value:.3f}", (1, value), xytext=offset,
+                        textcoords="offset points", color=color, fontsize=10)
+    for p, equilibrium, *_ in cases:
+        safe_at_stock_clear = stock_cleared_safe_schedule(equilibrium["bond_price"], p)
+        assert abs(safe_at_stock_clear["safe_units_demanded"] - 1) < 1e-9
+    fig.tight_layout(w_pad=2.4)
+    save_figure(fig, "two_period_claim_price_demand.png")
+
+
+def plot_equilibrium_prices_against_stock_return(shock: dict) -> dict:
+    """Sweep stock payouts; mu and both asset prices are equilibrium outcomes."""
+    factors = np.linspace(0.85, 1.05, 81)
+    outcomes = [
+        exchange_equilibrium(replace(
+            BASE,
+            stock_payoff_low=float(factor) * BASE.stock_payoff_low,
+            stock_payoff_high=float(factor) * BASE.stock_payoff_high,
+        ))
+        for factor in factors
+    ]
+    net_mu = np.array([(e["expected_stock_return"] - 1) * 100 for e in outcomes])
+    stock_prices = np.array([e["stock_price"] for e in outcomes])
+    safe_prices = np.array([e["bond_price"] for e in outcomes])
+    baseline = shock["baseline"]
+    lower = shock["lower_stock_payoff"]
+
+    fig, axes = plt.subplots(1, 2, figsize=(10.2, 4.3))
+    axes[0].plot(net_mu, stock_prices, color=TEAL, lw=2.8,
+                 label="Equilibrium as stock payout varies")
+    mean_initial_payout = (
+        BASE.stock_payoff_low * (1 - BASE.probability_high)
+        + BASE.stock_payoff_high * BASE.probability_high
+    )
+    fixed_payout_price = mean_initial_payout / (1 + net_mu / 100)
+    axes[0].plot(net_mu, fixed_payout_price, color=GREY, lw=2.0, ls=":",
+                 label="Same $0.20 payout: price identity")
+    axes[1].plot(net_mu, safe_prices, color=TEAL, lw=2.8,
+                 label="Equilibrium as stock payout varies")
+    for equilibrium, color, label in [
+        (baseline, TEAL, "Initial"),
+        (lower, RUST, "10% lower payout"),
+    ]:
+        x = (equilibrium["expected_stock_return"] - 1) * 100
+        for ax, key in [(axes[0], "stock_price"), (axes[1], "bond_price")]:
+            y = equilibrium[key]
+            ax.scatter(x, y, color=color, s=70, zorder=5)
+            if key == "stock_price":
+                offset = (7, 20) if label == "Initial" else (7, -23)
+            else:
+                offset = (7, 15)
+            ax.annotate(f"{label}: {y:.3f}", (x, y), xytext=offset,
+                        textcoords="offset points", color=color, fontsize=10)
+    axes[0].set(
+        xlabel="Equilibrium expected stock net return (%)",
+        ylabel="Stock price (date-0 goods)", xlim=(-0.5, 16.4), ylim=(0.165, 0.203),
+    )
+    axes[1].set(
+        xlabel="Equilibrium expected stock net return (%)",
+        ylabel="Safe-claim price (date-0 goods)", xlim=(-0.5, 16.4), ylim=(0.265, 0.319),
+    )
+    axes[0].legend(frameon=False, loc="upper right", fontsize=9)
+    for ax in axes:
+        finish_axis(ax)
+    fig.tight_layout(w_pad=2.4)
+    save_figure(fig, "two_period_equilibrium_prices_vs_stock_return.png")
+    return {
+        "stock_payout_factor_range": [float(factors[0]), float(factors[-1])],
+        "expected_stock_net_return_range_pct": [float(net_mu[0]), float(net_mu[-1])],
+        "stock_price_range": [float(stock_prices[0]), float(stock_prices[-1])],
+        "safe_price_range": [float(safe_prices[0]), float(safe_prices[-1])],
+    }
+
+
 def main() -> None:
     FIGURE_DIR.mkdir(exist_ok=True)
     DATA_DIR.mkdir(exist_ok=True)
@@ -555,6 +698,8 @@ def main() -> None:
     demographic = plot_demographic_shock()
     stock_return_shock = plot_lower_stock_return_demand()
     plot_lower_stock_return_comparison(stock_return_shock)
+    plot_claim_price_demand(stock_return_shock)
+    stock_payout_sweep = plot_equilibrium_prices_against_stock_return(stock_return_shock)
     summary = {
         "description": "Illustrative two-period model; one period is not calibrated to one year.",
         "parameters": asdict(BASE),
@@ -562,10 +707,11 @@ def main() -> None:
         "portfolio_at_mean_stock_return_1_12": portfolio,
         "demographic": demographic,
         "stock_return_shock": stock_return_shock,
+        "stock_payout_sweep": stock_payout_sweep,
     }
     path = DATA_DIR / "two_period_summary.json"
     path.write_text(json.dumps(summary, indent=2) + "\n")
-    print(f"Saved 7 figures to {FIGURE_DIR}")
+    print(f"Saved 9 figures to {FIGURE_DIR}")
     print(f"Saved numerical summary to {path}")
     for n, outcome in demographic.items():
         print(f"n={n}: P={outcome['total_price']:.3f}, "
