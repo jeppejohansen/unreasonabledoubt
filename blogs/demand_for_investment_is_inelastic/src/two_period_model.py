@@ -660,6 +660,8 @@ def plot_equilibrium_prices_against_stock_return(shock: dict) -> dict:
         x = (equilibrium["expected_stock_return"] - 1) * 100
         for ax, key in [(axes[0], "stock_price"), (axes[1], "bond_price")]:
             y = equilibrium[key]
+            ax.hlines(y, -0.5, x, color=color, lw=1.15, ls=(0, (4, 3)), alpha=0.78,
+                      zorder=2)
             ax.scatter(x, y, color=color, s=70, zorder=5)
             if key == "stock_price":
                 offset = (7, 20) if label == "Initial" else (7, -23)
@@ -667,6 +669,18 @@ def plot_equilibrium_prices_against_stock_return(shock: dict) -> dict:
                 offset = (7, 15)
             ax.annotate(f"{label}: {y:.3f}", (x, y), xytext=offset,
                         textcoords="offset points", color=color, fontsize=10)
+    for ax, key, direction in [
+        (axes[0], "stock_price", "Stock price"),
+        (axes[1], "bond_price", "Safe price"),
+    ]:
+        old_price = baseline[key]
+        new_price = lower[key]
+        change_pct = (new_price / old_price - 1) * 100
+        ax.annotate("", xy=(1.0, old_price), xytext=(1.0, new_price),
+                    arrowprops={"arrowstyle": "<->", "color": RUST, "lw": 1.1})
+        ax.text(1.55, (old_price + new_price) / 2,
+                f"{direction} {change_pct:+.1f}%", color=RUST, fontsize=8.7,
+                va="center")
     axes[0].set(
         xlabel="Equilibrium expected stock net return (%)",
         ylabel="Stock price (date-0 goods)", xlim=(-0.5, 16.4), ylim=(0.165, 0.203),
